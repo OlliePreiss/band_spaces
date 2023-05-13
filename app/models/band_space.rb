@@ -7,7 +7,7 @@ class BandSpace < ApplicationRecord
   validates :description, presence: true
   validates :description, length: { minimum: 10, maximum: 100 }
   validates :photo_url, presence: true
-  validates :users_id, presence: true
+  validates :user_id, presence: true
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0 }
 
