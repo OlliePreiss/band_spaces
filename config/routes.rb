@@ -6,27 +6,28 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Bandspaces Routes
+  # BandSpaces Routes
 
-  # Read
-  # route to display all bandspaces for browing
-  get "/bandspaces", to: "bandspaces#index"
-  # route to display a single bandspace and its information
-  get 'bandspaces/:id', to: 'bandspaces#show', as: :bandspace
+  # # Read
+  # # route to display all bandspaces for browing
+  # get "/band_spaces", to: "bandspaces#index"
+  # # route to display a single bandspace and its information
+  # get 'band_spaces/:id', to: 'bandspaces#show', as: :bandspace
 
-  # Create
-  # the create a new bandspace page/form
-  get 'bandspaces/new', to: 'bandspaces#new'
-  # the route to create a new bandspace so it persists
-  post 'bandspaces', to: 'bandspaces#create'
+  # # Create
+  # # the create a new bandspace page/form
+  # get 'band_spaces/new', to: 'bandspaces#new'
+  # # the route to create a new bandspace so it persists
+  # post 'band_spaces', to: 'bandspaces#create'
 
-  # Update
-  # get the edit form for a bandspace
-  get "bandspaces/:id/edit", to: "bandspaces#edit"
-  # perform the actual patch/update of a bandspace
-  patch "bandspaces/:id", to: "bandspaces#update"
+  # # Update
+  # # get the edit form for a bandspace
+  # get "band_spaces/:id/edit", to: "bandspaces#edit"
+  # # perform the actual patch/update of a bandspace
+  # patch "band_spaces/:id", to: "bandspaces#update"
 
-  # Delete
-  # deletes the bandspace :O
-  delete "bandspaces/:id", to: "bandspaces#destroy"
+  # # Delete
+  # # deletes the bandspace :O
+  # delete "band_spaces/:id", to: "bandspaces#destroy"
+  resources :band_spaces
 end
