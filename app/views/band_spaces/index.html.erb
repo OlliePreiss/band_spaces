@@ -1,0 +1,13 @@
+
+<h1>bandspaces</h1>
+<br>
+<%= link_to "Add bandspace", new_band_space_path %>
+<br>
+<ul>
+<% @bandspaces.each do |bandspace| %>
+  <h1><%= link_to bandspace.name, band_space_path(bandspace) %></h1>
+  <li><%= bandspace.address %></li>
+  <li><%= bandspace.description %></li>
+  <li><%= bandspace.price%></li>
+<% end %>
+</ul>
