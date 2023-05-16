@@ -30,7 +30,11 @@ gem "jbuilder"
 # Link to Faker API fo seeding
 gem "faker"
 
+# Security
 gem "dotenv-rails", groups: [:development, :test]
+
+# Cloudinary used to host user uploaded images
+gem "cloudinary"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
