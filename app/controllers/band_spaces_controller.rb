@@ -1,11 +1,12 @@
 class BandSpacesController < ApplicationController
-  before_action :set_bandspace, only: [:show]
+  before_action :set_bandspace, only: [:show, :destroy]
 
   def index
     @bandspaces = BandSpace.all
   end
 
   def show
+
   end
 
   def new
@@ -19,6 +20,14 @@ class BandSpacesController < ApplicationController
       redirect_to band_space_path(@bandspace)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @bandspace.destroy
+    respond_to do |format|
+      format.html { redirect_to band_spaces_url, notice: "Bandspace was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 
