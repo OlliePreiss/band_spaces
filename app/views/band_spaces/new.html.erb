@@ -5,6 +5,7 @@
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :description %>
+    <%= f.input :capacity , as: :numeric, input_html:{ min:"0"} %>
     <%= f.input :price, as: :currency, currency: "£" %>
     <%= f.submit "Submit Bandspace", class: "btn btn-primary" %>
   <% end %>

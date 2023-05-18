@@ -29,6 +29,6 @@ class BandSpacesController < ApplicationController
   end
 
   def bandspace_params
-    params.require(:band_space).permit(:name, :description, :price, :address, :photo_url)
+    params.require(:band_space).permit(:name, :description, :price, :address, :capacity, :photo_url)
   end
 end
