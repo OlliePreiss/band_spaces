@@ -1,12 +1,19 @@
 class BandSpacesController < ApplicationController
-  before_action :set_bandspace, only: [:show, :destroy]
+  before_action :set_bandspace, only: [:show, :destroy, :edit, :update]
 
   def index
     @bandspaces = BandSpace.all
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    @bandspace.update(bandspace_params)
+    redirect_to band_space_path(@bandspace)
   end
 
   def new
