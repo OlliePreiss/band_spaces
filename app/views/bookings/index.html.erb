@@ -7,10 +7,9 @@
 <ul>
 <% @bandspaces.each do |bandspace| %>
   <h1><%= link_to bandspace.name, band_space_path(bandspace) %></h1>
-  <% raise %>
   <% bandspace.bookings.each do |booking| %>
     <p>hi</p>
-    <p><%=booking.date %></p>
+    <p><%=booking.user.username %></p>
   <% end  %>
 
 
