@@ -48,3 +48,5 @@ class BandSpacesController < ApplicationController
     params.require(:band_space).permit(:name, :description, :price, :address, :capacity, :photo_url)
   end
 end
+
+# booking.bandspace = new_booking

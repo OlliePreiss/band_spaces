@@ -1,0 +1,5 @@
+<h1>Booking information for <%= @bandspace.name %></h1>
+
+<h2>this space is booked for: TBU</h2>
+
+<%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
