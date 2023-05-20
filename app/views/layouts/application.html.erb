@@ -12,14 +12,17 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <% if user_signed_in?  %>
+      <%= render "layouts/navbarlivesession" %>
+    <% else %>
+      <%= render "layouts/navbar" %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <div class="body-container">
       <%= yield %>
     </div>
-
     <div class="make-footer">
       <%= render "layouts/footer" %>
     </div>
