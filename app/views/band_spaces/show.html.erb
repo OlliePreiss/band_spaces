@@ -1,16 +1,24 @@
-<div class="container">
+<div class="container bandspace d-flex flex-column">
   <h2> <%= @bandspace.name %> </h2>
   <% if @bandspace.photo_url.key %>
-    <%=  cl_image_tag @bandspace.photo_url.key, height: 300, width: 400, crop: :fill %>
-  <% elsif @bandspace.photo_url? %>
-    <%= image_tag "/storage/#{@bandspace.photo_url}", style: 'height:300px;width:400px;margin-bottom:20px;' %>
+    <%=  cl_image_tag @bandspace.photo_url.key, height: 300, width: 400, crop: :fill, class: "image" %>
+  <% else  %>
+  <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
   <% end %>
-  <p> <%= @bandspace.user.username %> </p>
-  <p> <%= @bandspace.address %> </p>
-  <p> <%= @bandspace.description %> </p>
-  <p> <%= @bandspace.capacity %> </p>
-  <p> <%= @bandspace.price %> </p>
-  <%= link_to "Edit Bandspace", edit_band_space_path %>
-   <%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
-  <%= link_to "Back to Bandspaces", band_spaces_path %>
+  <div class="host-capacity-price d-flex">
+    <p> Hosted by <%= @bandspace.user.username %> </p>
+    <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <%= @bandspace.capacity %> </p>
+    <p> Price: <%= @bandspace.price %> </p>
+  </div>
+
+  <div class="address-descrip">
+    <p> <%= @bandspace.address %> </p>
+    <p> <%= @bandspace.description %> </p>
+  </div>
+  <div class="links d-flex">
+    <%= link_to "Edit Bandspace", edit_band_space_path %>
+    <%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
+    <%= link_to "Back to Bandspaces", band_spaces_path %>
+  </div>
 </div>
+<div class="page-end"></div>
