@@ -1,3 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "form";
+@import "../components/card";
+
+.page-title {
+  margin-bottom: 40px;
+}
+
+.page-end {
+  padding-bottom: 100px;
+}

@@ -11,6 +11,7 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+@import "pages/show";
 @import "components/navbar";
 @import "components/footer";
 
@@ -23,4 +24,8 @@
   min-height: 400px;
   margin-bottom: 100px;
   clear: both;
+}
+
+.page-end {
+  padding-bottom: 100px;
 }

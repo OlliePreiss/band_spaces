@@ -1,0 +1,21 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand rounded" href="#">
+      <img src="https://i.pinimg.com/736x/c9/9b/27/c99b27b7ece4d9894ed490fb3529f0f5.jpg" />
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%# <h3> Hi <%= current_user.username %>
+          </li>
+           <li class="nav-item active">
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true } %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
