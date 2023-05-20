@@ -13,7 +13,7 @@
   </div>
 
   <div class="address-descrip">
-  <%= link_to "Book this spaces", new_band_space_booking_path%>
+  <%= link_to "Book this space", new_band_space_booking_path(@bandspace)%>
     <p> <%= @bandspace.address %> </p>
     <p> <%= @bandspace.description %> </p>
   </div>
