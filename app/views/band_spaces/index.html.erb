@@ -9,7 +9,11 @@
     <div class="row d-flex justify-content-between">
       <% @bandspaces.each do |bandspace| %>
         <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <% if bandspace.photo_url.key %>
+          <%= cl_image_tag bandspace.photo_url.key %>
+        <% else %>
+          <img src="<%= bandspace.photo_url.record[:photo_url] %>" class="card-img-top" alt="...">
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= link_to bandspace.name, band_space_path(bandspace), class: "text-decoration-none" %></h5>
           <p class="card-text"><%= bandspace.address %></p>
