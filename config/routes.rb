@@ -29,5 +29,7 @@ Rails.application.routes.draw do
   # # Delete
   # # deletes the bandspace :O
   # delete "band_spaces/:id", to: "bandspaces#destroy"
-  resources :band_spaces
+  resources :band_spaces do
+    resources :bookings #to be refactored once routes have been finalised
+  end
 end
