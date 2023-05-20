@@ -1,13 +1,22 @@
-
-<h1>bandspaces</h1>
-<br>
-<%= link_to "Add bandspace", new_band_space_path %>
-<br>
-<ul>
-<% @bandspaces.each do |bandspace| %>
-  <h1><%= link_to bandspace.name, band_space_path(bandspace) %></h1>
-  <li><%= bandspace.address %></li>
-  <li><%= bandspace.description %></li>
-  <li><%= bandspace.price%></li>
-<% end %>
-</ul>
+<div class="container col-9">
+  <div>
+    <div class="page-title">
+      <h1> Bandspaces </h1>
+      <br>
+        <%= link_to "Add bandspace", new_band_space_path %>
+      <br>
+    </div>
+    <div class="row d-flex justify-content-between">
+      <% @bandspaces.each do |bandspace| %>
+        <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to bandspace.name, band_space_path(bandspace), class: "text-decoration-none" %></h5>
+          <p class="card-text"><%= bandspace.address %></p>
+          <p class="card-text"> <strong>£ <%= bandspace.price%> </strong></p>
+        </div>
+      </div>
+      <% end  %>
+    </div>
+  </div>
+</div>
