@@ -1,2 +1,16 @@
-<h1>BandSpaces#show</h1>
-<p>Find me in app/views/band_spaces/show.html.erb</p>
+<div class="container">
+  <h2> <%= @bandspace.name %> </h2>
+  <% if @bandspace.photo_url.key %>
+    <%=  cl_image_tag @bandspace.photo_url.key, height: 300, width: 400, crop: :fill %>
+  <% elsif @bandspace.photo_url? %>
+    <%= image_tag "/storage/#{@bandspace.photo_url}", style: 'height:300px;width:400px;margin-bottom:20px;' %>
+  <% end %>
+  <p> <%= @bandspace.user.username %> </p>
+  <p> <%= @bandspace.address %> </p>
+  <p> <%= @bandspace.description %> </p>
+  <p> <%= @bandspace.capacity %> </p>
+  <p> <%= @bandspace.price %> </p>
+  <%= link_to "Edit Bandspace", edit_band_space_path %>
+   <%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
+  <%= link_to "Back to Bandspaces", band_spaces_path %>
+</div>

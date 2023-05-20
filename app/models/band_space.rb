@@ -1,5 +1,5 @@
 class BandSpace < ApplicationRecord
-  has_one_attached :photo
+  has_one_attached :photo_url
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :name, presence: true
