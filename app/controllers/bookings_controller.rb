@@ -3,4 +3,8 @@ class BookingsController < ApplicationController
     @bandspaces = BandSpace.all
     @booking = Booking.new
   end
+
+  def new
+    @booking = Booking.new
+  end
 end
