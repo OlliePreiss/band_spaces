@@ -6,7 +6,7 @@
         <%= link_to "Add bandspace", new_band_space_path %>
       <br>
     </div>
-    <div class="row d-flex justify-content-between">
+    <div class="row d-flex justify-content-evenly">
       <% @bandspaces.reverse.each do |bandspace| %>
         <div class="card" style="width: 18rem;">
         <% if bandspace.photo_url.key %>

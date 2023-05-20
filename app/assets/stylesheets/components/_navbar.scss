@@ -7,9 +7,6 @@
   flex-grow: 0;
 }
 
-img {
-    width: 40px;
-  }
 
 .nav-item {
   margin: 5px;
@@ -18,4 +15,8 @@ img {
 
 .container-fluid {
   margin-top: 5px;
+
+  img {
+    width: 40px;
+  }
 }
