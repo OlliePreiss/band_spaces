@@ -1,7 +1,7 @@
 class BandSpace < ApplicationRecord
   has_one_attached :photo_url
   belongs_to :user
-
+  has_many :bookings, dependent: :destroy
   validates :name, presence: true
   validates :address, presence: true
   validates :address, length: { minimum: 10, maximum: 100 }

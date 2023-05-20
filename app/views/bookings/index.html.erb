@@ -1,0 +1,20 @@
+<div class="text-center">
+<h1>Bandspace bookings</h1>
+<br>
+<%= link_to "Book a bandspace booking", new_band_space_booking_path %>
+<br>
+<ul>
+<ul>
+<% @bandspaces.each do |bandspace| %>
+  <h1><%= link_to bandspace.name, band_space_path(bandspace) %></h1>
+  <% bandspace.bookings.each do |booking| %>
+    <p>hi</p>
+    <p><%=booking.user.username %></p>
+  <% end  %>
+
+
+
+<% end %>
+</ul>
+</ul>
+</div>
