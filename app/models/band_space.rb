@@ -13,4 +13,6 @@ class BandSpace < ApplicationRecord
   validates :user_id, presence: true
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0 }
+  validates :rating, numericality: { only_integer: true }
+  validates :rating, numericality: { in: 0..5 }
 end

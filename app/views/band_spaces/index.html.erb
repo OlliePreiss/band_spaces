@@ -18,6 +18,11 @@
           <h5 class="card-title"><%= link_to bandspace.name, band_space_path(bandspace), class: "text-decoration-none" %></h5>
           <p class="card-text"><%= bandspace.address %></p>
           <p class="card-text"> <strong>£ <%= bandspace.price%> </strong></p>
+          <% if bandspace.rating == nil %>
+            <p class="card-text"> <strong> No ratings </strong></p>
+          <% else %>
+            <p class="card-text"> <strong> <%= bandspace.rating%> / 5 </strong></p>
+          <% end %>
         </div>
       </div>
       <% end  %>
