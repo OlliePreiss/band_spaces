@@ -1,0 +1,9 @@
+<h1> Write you review </h1>
+
+<%= simple_form_for [@bandspace, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body %>
+  <%= f.input :rating %>
+    <%# change the input type to something better %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end  %>
