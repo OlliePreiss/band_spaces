@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   # delete "band_spaces/:id", to: "bandspaces#destroy"
   resources :band_spaces do
     resources :bookings #to be refactored once routes have been finalised
+    resources :reviews
   end
 end

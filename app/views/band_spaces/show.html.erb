@@ -23,5 +23,17 @@
     <%= link_to "Back to Bandspaces", band_spaces_path %>
 
   </div>
+
+  <div class="container">
+    <%= link_to "Leave a review", new_band_space_review_path(@bandspace.id) %>
+    <% @bandspace.reviews.each do |review| %>
+      <div class="review-card">
+        <h3> <%= review.title %></h3>
+        <p> <%= review.rating %> / 5 </p>
+        <p> <%= review.body %> </p>
+        <p><%= review.user.email %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="page-end"></div>

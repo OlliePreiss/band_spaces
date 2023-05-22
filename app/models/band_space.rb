@@ -2,6 +2,8 @@ class BandSpace < ApplicationRecord
   has_one_attached :photo_url
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
   validates :name, presence: true
   validates :address, presence: true
   validates :address, length: { minimum: 10, maximum: 100 }
@@ -11,4 +13,6 @@ class BandSpace < ApplicationRecord
   validates :user_id, presence: true
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0 }
+  validates :rating, numericality: { only_integer: true }
+  validates :rating, numericality: { in: 0..5 }
 end
