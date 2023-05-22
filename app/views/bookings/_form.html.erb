@@ -1,7 +1,5 @@
-<div class="container">
+
   <%= simple_form_for [@bandspace, @booking] do |f| %>
     <%= f.input :date, as: :date, html5: true %>
     <%= f.submit "Create Booking", class: "btn btn-primary" %>
   <% end %>
-</div>
-

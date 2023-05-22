@@ -9,23 +9,37 @@
   <div class="host-capacity-price d-flex">
     <p> Hosted by <%= @bandspace.user.username %> </p>
     <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <%= @bandspace.capacity %> </p>
-    <p> Price: <%= @bandspace.price %> </p>
+    <p> Price: £ <%= @bandspace.price %> </p>
   </div>
 
   <div class="address-descrip">
-  <%= link_to "Book this space", new_band_space_booking_path(@bandspace)%>
+  <%#  link_to "Book this space", new_band_space_booking_path(@bandspace) %>
+    <div class="booking-form my-1 p-1">
+      <%= render :partial => '/bookings/form'%>
+    </div>
     <p> <%= @bandspace.address %> </p>
     <p> <%= @bandspace.description %> </p>
   </div>
-  <div class="links d-flex">
+  <% if @bandspace.user == current_user %>
+    <div class="links d-flex">
+  <% else %>
+    <div class="links d-none">
+  <% end %>
     <%= link_to "Edit Bandspace", edit_band_space_path %>
     <%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
-    <%= link_to "Back to Bandspaces", band_spaces_path %>
-
   </div>
 
+    <%= link_to "Back to Bandspaces", band_spaces_path %>
+
   <div class="container">
-    <%= link_to "Leave a review", new_band_space_review_path(@bandspace.id) %>
+    <%# = link_to "Leave a review", new_band_space_review_path(@bandspace.id) %>
+    <% if @bandspace.user == current_user %>
+    <div class="d-none">
+    <% else %>
+    <div>
+    <% end %>
+    <%= render :partial => '/reviews/form'%>
+    </div>
     <% @bandspace.reviews.each do |review| %>
       <div class="review-card">
         <h3> <%= review.title %></h3>
