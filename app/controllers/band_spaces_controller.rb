@@ -6,7 +6,6 @@ class BandSpacesController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit

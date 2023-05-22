@@ -6,8 +6,8 @@
         <%= link_to "Add bandspace", new_band_space_path %>
       <br>
     </div>
-    <div class="row d-flex justify-content-between">
-      <% @bandspaces.each do |bandspace| %>
+    <div class="row d-flex justify-content-evenly">
+      <% @bandspaces.reverse.each do |bandspace| %>
         <div class="card" style="width: 18rem;">
         <% if bandspace.photo_url.key %>
           <%= cl_image_tag bandspace.photo_url.key, class: "card-img-top" %>
@@ -18,6 +18,11 @@
           <h5 class="card-title"><%= link_to bandspace.name, band_space_path(bandspace), class: "text-decoration-none" %></h5>
           <p class="card-text"><%= bandspace.address %></p>
           <p class="card-text"> <strong>£ <%= bandspace.price%> </strong></p>
+          <% if bandspace.rating == nil %>
+            <p class="card-text"> <strong> No ratings </strong></p>
+          <% else %>
+            <p class="card-text"> <strong> <%= bandspace.rating%> / 5 </strong></p>
+          <% end %>
         </div>
       </div>
       <% end  %>
