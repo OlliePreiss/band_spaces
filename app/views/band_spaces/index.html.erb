@@ -3,7 +3,12 @@
     <div class="page-title">
       <h1> Bandspaces </h1>
       <br>
-        <%= link_to "Add bandspace", new_band_space_path %>
+    <% if user_signed_in? %>
+    <p><%= link_to "Add bandspace", new_band_space_path %>
+    <% else %>
+    <p class="d-none">
+    <% end %>
+    </p>
       <br>
     </div>
     <div class="row d-flex justify-content-evenly">
@@ -28,6 +33,12 @@
       <% end  %>
     </div>
   </div>
+  <div style="width: 100%; height: 600px;"
+       data-controller="map"
+       data-map-markers-value="<%= @markers.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+
 <div class="page-end">
 </div>

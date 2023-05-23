@@ -3,6 +3,12 @@ class BandSpacesController < ApplicationController
 
   def index
     @bandspaces = BandSpace.all
+    @markers = @bandspaces.geocoded.map do |bandspace|
+      {
+        lat: bandspace.latitude,
+        lng: bandspace.longitude
+      }
+    end
   end
 
   def show
@@ -25,7 +31,7 @@ class BandSpacesController < ApplicationController
   def create
     @bandspace = BandSpace.new(bandspace_params)
     @bandspace.user = current_user
-    if @bandspace.save
+    if @bandspace.save!
       redirect_to band_space_path(@bandspace)
     else
       render :new, status: :unprocessable_entity
