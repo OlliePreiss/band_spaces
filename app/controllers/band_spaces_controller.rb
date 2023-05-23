@@ -6,6 +6,8 @@ class BandSpacesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @review = Review.new
   end
 
   def edit
