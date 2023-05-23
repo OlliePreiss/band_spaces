@@ -1,7 +1,7 @@
 <div class="container col-9">
   <div>
     <div class="page-title">
-      <h1 class="justify-content-center"> Bandspaces </h1>
+      <h1 class="row justify-content-center"> Bandspaces </h1>
 
         <div class="row justify-content-center">
           <div class="col-sm-8 my-3">
@@ -15,10 +15,11 @@
             <% end %>
           </div>
         </div>
-
-      <br>
-        <%= link_to "Add bandspace", new_band_space_path %>
-      <br>
+      <div class="d-flex justify-content-center">
+        <br>
+            <%= link_to "Add bandspace", new_band_space_path, class: "btn btn-danger" %>
+        <br>
+      </div>
     </div>
     <div class="row d-flex justify-content-evenly">
       <% @bandspaces.reverse.each do |bandspace| %>
