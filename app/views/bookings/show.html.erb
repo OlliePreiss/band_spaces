@@ -1,5 +1,33 @@
-<h1>Booking information for <%= @bandspace.name %></h1>
+<div class="container booking col-9">
+  <div class="space-header">
+    <h2> <%= @booking.band_space.name %> </h2>
+  </div>
+  <div class="host-capacity-price d-flex">
+    <p> <i class="bi bi-star-fill"></i> <%= @booking.band_space.rating %></p>
+    <p> Hosted by <strong> <%= @booking.user.username %> </strong> </p>
+    <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <strong><%= @booking.band_space.capacity %></strong> </p>
+    <p> Price: <strong>£ <%= @booking.band_space.price %></strong> </p>
+  </div>
+  <% if @booking.band_space.photo_url.key %>
+    <%=  cl_image_tag @booking.band_space.photo_url.key, height: 300, width: 400, crop: :fill, class: "image" %>
+  <% else  %>
+  <img src=<%= @booking.band_space.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
+  <% end %>
 
-<h2>this space is booked for: TBU</h2>
-
-<%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
+  <div class="address-descrip">
+  <%#  link_to "Book this space", new_band_space_booking_path(@bandspace) %>
+    <div class="booking-form my-1 p-1">
+    </div>
+    <p> <%= @booking.band_space.address %> </p>
+    <p> <%= @booking.band_space.description %> </p>
+    <h3> <%= @booking.date %> </h3>
+  </div>
+  <div class="d-flex">
+    <div>
+      <%= link_to "Back to Bookings", mine_bookings_path, class: "btn btn-primary" %>
+    </div>
+    <div>
+      <%= link_to "Delete Booking", bookings_path(@booking), data: { turbo_method: :delete}, class: "btn" %>
+    </div>
+  </div>
+</div>

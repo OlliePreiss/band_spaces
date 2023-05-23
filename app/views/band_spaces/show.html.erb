@@ -1,16 +1,18 @@
-<div class="container bandspace d-flex flex-column">
-  <h2> <%= @bandspace.name %> </h2>
+<div class="container bandspace">
+  <div class="space-header">
+    <h2> <%= @bandspace.name %> </h2>
+  </div>
+  <div class="host-capacity-price d-flex">
+    <p> <i class="bi bi-star-fill"></i> <%= @bandspace.rating %></p>
+    <p> Hosted by <strong> <%= @bandspace.user.username %> </strong> </p>
+    <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <strong><%= @bandspace.capacity %></strong> </p>
+    <p> Price: <strong>£ <%= @bandspace.price %></strong> </p>
+  </div>
   <% if @bandspace.photo_url.key %>
     <%=  cl_image_tag @bandspace.photo_url.key, height: 300, width: 400, crop: :fill, class: "image" %>
   <% else  %>
   <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
   <% end %>
-
-  <div class="host-capacity-price d-flex">
-    <p> Hosted by <%= @bandspace.user.username %> </p>
-    <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <%= @bandspace.capacity %> </p>
-    <p> Price: £ <%= @bandspace.price %> </p>
-  </div>
 
   <div class="address-descrip">
   <%#  link_to "Book this space", new_band_space_booking_path(@bandspace) %>
