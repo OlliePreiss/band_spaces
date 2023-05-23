@@ -6,7 +6,8 @@ class BandSpacesController < ApplicationController
     @markers = @bandspaces.geocoded.map do |bandspace|
       {
         lat: bandspace.latitude,
-        lng: bandspace.longitude
+        lng: bandspace.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {bandspace: bandspace})
       }
     end
   end
