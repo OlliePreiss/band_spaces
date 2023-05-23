@@ -13,6 +13,11 @@ class BandSpace < ApplicationRecord
   validates :user_id, presence: true
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0 }
-  validates :rating, numericality: { only_integer: true }
-  validates :rating, numericality: { in: 0..5 }
+  include PgSearch::Model
+
+  pg_search_scope :search_by_name_and_description,
+    against: [ :name, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
