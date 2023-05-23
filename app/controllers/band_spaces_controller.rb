@@ -3,7 +3,7 @@ class BandSpacesController < ApplicationController
 
   def index
     if params[:query].present?
-      @bandspaces = BandSpace.search_by_name_and_description(params[:query])
+      @bandspaces = BandSpace.search_by_schema_columns(params[:query])
     else
       @bandspaces = BandSpace.all
     end

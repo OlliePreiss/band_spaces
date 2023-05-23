@@ -15,8 +15,8 @@ class BandSpace < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   include PgSearch::Model
 
-  pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
+  pg_search_scope :search_by_schema_columns,
+    against: [ :name, :description, :address, :capacity, ],
     using: {
       tsearch: { prefix: true }
     }
