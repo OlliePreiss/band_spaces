@@ -1,15 +1,32 @@
 <div class="container col-9">
   <div>
     <div class="page-title">
-      <h1> Bandspaces </h1>
-      <br>
-    <% if user_signed_in? %>
-    <p><%= link_to "Add bandspace", new_band_space_path %>
-    <% else %>
-    <p class="d-none">
-    <% end %>
-    </p>
-      <br>
+
+      <h1 class="row justify-content-center"> Bandspaces </h1>
+
+        <div class="row justify-content-center">
+          <div class="col-sm-8 my-3">
+            <%= form_with url: band_spaces_path, method: :get, class: "d-flex my-3" do %>
+              <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Type a keyword"
+                %>
+              <%= submit_tag "Search", name: "", class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        </div>
+      <div class="d-flex justify-content-center">
+        <br> 
+        <% if user_signed_in? %>
+          <p><%= link_to "Add bandspace", new_band_space_path %>
+        <% else %>
+          <p class="d-none">
+        <% end %>
+        </p>
+         <br>
+      </div>
+
     </div>
     <div class="row d-flex justify-content-evenly">
       <% @bandspaces.reverse.each do |bandspace| %>
