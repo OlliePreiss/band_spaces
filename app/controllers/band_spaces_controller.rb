@@ -2,7 +2,11 @@ class BandSpacesController < ApplicationController
   before_action :set_bandspace, only: [:show, :destroy, :edit, :update]
 
   def index
-    @bandspaces = BandSpace.all
+    if params[:query].present?
+      @bandspaces = BandSpace.search_by_schema_columns(params[:query])
+    else
+      @bandspaces = BandSpace.all
+    end
   end
 
   def show
