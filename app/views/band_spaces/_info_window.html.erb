@@ -1,3 +1,30 @@
-<h2><%= bandspace.name %></h2>
-<p>£<%= bandspace.price %></p>
-<p>Capacity:<%= bandspace.capacity %></p>
+<%= link_to band_space_path(bandspace) do %>
+<div class="popup">
+  <% if bandspace.photo_url.key %>
+    <%= cl_image_tag bandspace.photo_url.key, class: "card-img-top rounded" %>
+  <% else %>
+    <img src="<%= bandspace.photo_url.record[:photo_url] %>" class="card-img-top rounded" alt="...">
+  <% end %>
+
+  <div class="map-card-body">
+    <div class="d-flex justify-content-between">
+    <h5 class="card-title">
+    <%= bandspace.name %>
+    </h5>
+    <% if bandspace.rating == nil %>
+        <p class="card-text"> <strong> No ratings </strong></p>
+      <% else %>
+        <p class="card-text">
+          <i class="fa-solid fa-star"></i>
+          <strong> <%= bandspace.rating%> / 5 </strong>
+        </p>
+      <% end %>
+    </div>
+    <div class="price-capacity d-flex justify-content-between">
+      <p class="card-text">
+        <strong>£ <%= bandspace.price%> </strong>
+      </p>
+      <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <%= bandspace.capacity %> </p>
+    </div>
+</div>
+<% end %>
