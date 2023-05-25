@@ -2,6 +2,7 @@ class BandSpacesController < ApplicationController
   before_action :set_bandspace, only: [:show, :destroy, :edit, :update]
 
   def index
+<<<<<<< HEAD
     @bandspaces = BandSpace.all
     @markers = @bandspaces.geocoded.map do |bandspace|
       {
@@ -9,6 +10,12 @@ class BandSpacesController < ApplicationController
         lng: bandspace.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {bandspace: bandspace})
       }
+=======
+    if params[:query].present?
+      @bandspaces = BandSpace.search_by_schema_columns(params[:query])
+    else
+      @bandspaces = BandSpace.all
+>>>>>>> master
     end
   end
 

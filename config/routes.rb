@@ -33,4 +33,9 @@ Rails.application.routes.draw do
     resources :bookings #to be refactored once routes have been finalised
     resources :reviews
   end
+  resources :bookings do
+    collection do
+      get :mine
+    end
+  end
 end
