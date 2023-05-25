@@ -3,7 +3,7 @@
   <% if bandspace.photo_url.key %>
     <%= cl_image_tag bandspace.photo_url.key, class: "card-img-top rounded" %>
   <% else %>
-    <img src="<%= bandspace.photo_url.record[:photo_url] %>" class="card-img-top rounded" alt="...">
+    <img src="<%= bandspace.photo_url.record[:photo_url] %>" class="card-img-top" alt="...">
   <% end %>
 
   <div class="map-card-body">
