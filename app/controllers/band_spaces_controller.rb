@@ -2,10 +2,20 @@ class BandSpacesController < ApplicationController
   before_action :set_bandspace, only: [:show, :destroy, :edit, :update]
 
   def index
+
+    @bandspaces = BandSpace.all
+    @markers = @bandspaces.geocoded.map do |bandspace|
+      {
+        lat: bandspace.latitude,
+        lng: bandspace.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {bandspace: bandspace})
+      }
+
     if params[:query].present?
       @bandspaces = BandSpace.search_by_schema_columns(params[:query])
     else
       @bandspaces = BandSpace.all
+
     end
   end
 
@@ -29,7 +39,7 @@ class BandSpacesController < ApplicationController
   def create
     @bandspace = BandSpace.new(bandspace_params)
     @bandspace.user = current_user
-    if @bandspace.save
+    if @bandspace.save!
       redirect_to band_space_path(@bandspace)
     else
       render :new, status: :unprocessable_entity
