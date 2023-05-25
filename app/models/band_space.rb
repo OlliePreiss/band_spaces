@@ -14,8 +14,7 @@ class BandSpace < ApplicationRecord
   validates :user_id, presence: true
   validates :price, presence: true
   validates :price, numericality: { greater_than: 0 }
-<<<<<<< HEAD
-=======
+
   include PgSearch::Model
 
   pg_search_scope :search_by_schema_columns,
@@ -23,5 +22,5 @@ class BandSpace < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
->>>>>>> master
+
 end
