@@ -3,6 +3,7 @@
     <%= f.input :photo_url, as: :file %>
     <%= f.input :name %>
     <%= f.input :address %>
+    <%= f.error :address %>
     <%= f.input :description %>
     <%= f.input :capacity , as: :numeric, input_html:{ min:"0"} %>
     <%= f.input :price, as: :currency, currency: "£" %>

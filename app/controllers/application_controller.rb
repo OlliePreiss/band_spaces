@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
       user_params.permit(:username, :email)
     end
   end
+
+  def home
+    @bandspaces = BandSpace.all
+  end
 end
