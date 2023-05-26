@@ -10,7 +10,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def home
-    @bandspaces = BandSpace.all
-  end
 end
