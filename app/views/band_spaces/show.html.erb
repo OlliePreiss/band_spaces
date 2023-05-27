@@ -52,15 +52,35 @@
     <% end %>
     <%= render :partial => '/reviews/form'%>
     </div>
-    </div>
     <% @bandspace.reviews.each do |review| %>
-      <div class="review-card" >
-        <h3> <%= review.title %></h3>
-        <p> <%= review.rating %> / 5 </p>
-        <p> <%= review.body %> </p>
-        <p><%= review.user.email %></p>
+    <div class="review-card">
+      <p> <i class="fa-solid fa-user"></i> <%= review.user.username %></p>
+      <div class="d-flex justify-content-between ">
+        <h4> <%= review.title %></h3>
+        <p> <i class="fa-solid fa-star"></i> <%= review.rating %> / 5 </p>
       </div>
+      <p> <%= review.body %> </p>
+    </div>
     <% end %>
   </div>
 </div>
 <div class="page-end"></div>
+
+<%# <div class="card-product d-flex justify-content-between">
+          <div class="d-flex">
+            <div>
+               if booking.band_space.photo_url.key
+                =  cl_image_tag booking.band_space.photo_url.key, height: 300, width: 400, crop: :fill, class: "image"
+               else
+                <img src== booking.band_space.photo_url.record[:photo_url] style="height: 120;width: 120"
+               end
+            </div>
+            <div class="card-product-infos d-flex flex-column justify-content-center">
+              <h2> = booking.band_space.name </h2>
+              <p> <strong> = booking.date  </strong> <p>
+            </div>
+          </div>
+          <div>
+            = link_to "See info", booking_path(booking), class: "btn btn-flat"
+          </div>
+        </div> %>
