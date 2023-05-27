@@ -10,7 +10,7 @@ class BandSpacesController < ApplicationController
         lng: bandspace.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {bandspace: bandspace})
       }
-
+    end
     if params[:query].present?
       @bandspaces = BandSpace.search_by_schema_columns(params[:query])
     else
