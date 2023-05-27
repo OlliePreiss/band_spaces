@@ -47,7 +47,7 @@
     <% else %>
     <div data-controller="visibility">
     <button class="btn btn-flat" data-visibility-target="button" data-action="visibility#toggleTargets">
-    <span data-visibility-target="span"> Write </span> a review </button>
+    <span data-visibility-target="span"> </span> new review form </button>
     <div id="new-review-form" data-visibility-target="hideable" hidden>
     <% end %>
     <%= render :partial => '/reviews/form'%>
@@ -65,22 +65,3 @@
   </div>
 </div>
 <div class="page-end"></div>
-
-<%# <div class="card-product d-flex justify-content-between">
-          <div class="d-flex">
-            <div>
-               if booking.band_space.photo_url.key
-                =  cl_image_tag booking.band_space.photo_url.key, height: 300, width: 400, crop: :fill, class: "image"
-               else
-                <img src== booking.band_space.photo_url.record[:photo_url] style="height: 120;width: 120"
-               end
-            </div>
-            <div class="card-product-infos d-flex flex-column justify-content-center">
-              <h2> = booking.band_space.name </h2>
-              <p> <strong> = booking.date  </strong> <p>
-            </div>
-          </div>
-          <div>
-            = link_to "See info", booking_path(booking), class: "btn btn-flat"
-          </div>
-        </div> %>
