@@ -3,7 +3,7 @@
     <h2> <%= @booking.band_space.name %> </h2>
   </div>
   <div class="host-capacity-price d-flex">
-    <p> <i class="bi bi-star-fill"></i> <%= @booking.band_space.rating %></p>
+    <p> <%= @booking.band_space.rating %> <i class="fa-solid fa-star"></i></p>
     <p> Hosted by <strong> <%= @booking.user.username %> </strong> </p>
     <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <strong><%= @booking.band_space.capacity %></strong> </p>
     <p> Price: <strong>£ <%= @booking.band_space.price %></strong> </p>
@@ -24,7 +24,7 @@
   </div>
   <div class="d-flex mb-1 pb-1">
     <div>
-      <%= link_to "Back to Bookings", mine_bookings_path, class: "btn btn-primary" %>
+      <%= link_to "Back to Bookings", mine_bookings_path, class: "btn btn-flat" %>
     </div>
     <div>
       <%= link_to "Delete Booking", bookings_path(@booking), data: { turbo_method: :delete}, class: "btn" %>
