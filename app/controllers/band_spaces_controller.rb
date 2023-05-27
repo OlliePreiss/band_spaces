@@ -42,6 +42,7 @@ class BandSpacesController < ApplicationController
     if @bandspace.save!
       redirect_to band_space_path(@bandspace)
     else
+      flash[:bandspace_errors] = @bandspace.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end

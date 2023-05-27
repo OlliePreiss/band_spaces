@@ -2,6 +2,14 @@
   <div>
     <div class="page-title">
 
+      <br>
+    <% if user_signed_in? %>
+    <p><%= link_to "Add bandspace", new_band_space_path %>
+    <% else %>
+    <p class="d-none">
+    <% end %>
+    </p>
+      <br>
       <h1 class="row justify-content-center"> Bandspaces </h1>
 
         <div class="row justify-content-center">
@@ -17,7 +25,7 @@
           </div>
         </div>
       <div class="d-flex justify-content-center">
-        <br> 
+        <br>
         <% if user_signed_in? %>
           <p><%= link_to "Add bandspace", new_band_space_path %>
         <% else %>
@@ -26,7 +34,6 @@
         </p>
          <br>
       </div>
-
     </div>
     <div class="row d-flex justify-content-evenly">
       <% @bandspaces.reverse.each do |bandspace| %>

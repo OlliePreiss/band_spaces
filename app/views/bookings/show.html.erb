@@ -1,5 +1,5 @@
-<div class="container booking col-9">
-  <div class="space-header">
+<div class="container booking col-9 shadow p-3 mb-5 bg-body rounded">
+  <div class="space-header ">
     <h2> <%= @booking.band_space.name %> </h2>
   </div>
   <div class="host-capacity-price d-flex">
@@ -14,15 +14,15 @@
   <img src=<%= @booking.band_space.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
   <% end %>
 
-  <div class="address-descrip">
+  <div class="address-descrip ">
   <%#  link_to "Book this space", new_band_space_booking_path(@bandspace) %>
-    <div class="booking-form my-1 p-1">
+    <div class="booking-form my-1 p-1 ">
     </div>
     <p> <%= @booking.band_space.address %> </p>
     <p> <%= @booking.band_space.description %> </p>
-    <h3> <%= @booking.date %> </h3>
+    <h4> <%= @booking.date %> </h4>
   </div>
-  <div class="d-flex">
+  <div class="d-flex mb-1 pb-1">
     <div>
       <%= link_to "Back to Bookings", mine_bookings_path, class: "btn btn-flat" %>
     </div>
