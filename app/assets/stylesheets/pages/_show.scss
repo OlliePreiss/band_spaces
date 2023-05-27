@@ -11,7 +11,7 @@ p{
 
 .make-a-booking{
   margin: 20px 0px ;
-  width: 20%;
+  width: 100%;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   padding: 24px;
@@ -36,4 +36,12 @@ p{
   p {
     margin-right: 20px;
   }
+}
+
+.pb-1 {
+  margin-top: 20px;
+}
+
+.backspace {
+  margin-bottom: 20px;
 }
