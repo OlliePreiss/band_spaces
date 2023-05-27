@@ -11,43 +11,50 @@
   <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
   <% end %>
 
-  <div class="address-descrip">
-  <%#  link_to "Book this space", new_band_space_booking_path(@bandspace) %>
-  <div class="make-a-booking">
-    <div class="form-label-price d-flex justify-content-between">
-      <h3>Date</h3>
-      <p><strong>£<%= @bandspace.price %></strong> per day </p>
+  <div class="info-and-booking d-flex justify-content-between col-9">
+    <div class="description">
+      <p> <%= @bandspace.address %> </p>
+      <p> <%= @bandspace.description %> </p>
+      <% if @bandspace.user == current_user %>
+        <div class="links d-flex">
+      <% else %>
+        <div class="links d-none">
+      <% end %>
+        <%= link_to "Edit Bandspace", edit_band_space_path %>
+        <%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
+      </div>
+    <div class="backspace">
+      <%= link_to "Back to Bandspaces", band_spaces_path, class: "btn btn-flat" %>
     </div>
-
-    <div class="booking-form my-1">
-      <%= render :partial => '/bookings/form'%>
     </div>
+    <div class="booking">
+      <div class="make-a-booking">
+        <div class="form-label-price d-flex justify-content-between">
+          <h3>Date</h3>
+          <p><strong>£<%= @bandspace.price %></strong> per day </p>
+        </div>
+        <div class="booking-form my-1">
+          <%= render :partial => '/bookings/form'%>
+        </div>
+      </div>
   </div>
-    <p> <%= @bandspace.address %> </p>
-    <p> <%= @bandspace.description %> </p>
   </div>
-  <% if @bandspace.user == current_user %>
-    <div class="links d-flex">
-  <% else %>
-    <div class="links d-none">
-  <% end %>
-    <%= link_to "Edit Bandspace", edit_band_space_path %>
-    <%= link_to "Delete Bandspace", band_space_path(@bandspace), data: { turbo_method: :delete} %>
-  </div>
-
-    <%= link_to "Back to Bandspaces", band_spaces_path %>
 
   <div class="container">
     <%# = link_to "Leave a review", new_band_space_review_path(@bandspace.id) %>
     <% if @bandspace.user == current_user %>
     <div class="d-none">
     <% else %>
-    <div>
+    <div data-controller="visibility">
+    <button class="btn btn-flat" data-visibility-target="button" data-action="visibility#toggleTargets">
+    <span data-visibility-target="span"> Write </span> a review </button>
+    <div id="new-review-form" data-visibility-target="hideable" hidden>
     <% end %>
     <%= render :partial => '/reviews/form'%>
     </div>
+    </div>
     <% @bandspace.reviews.each do |review| %>
-      <div class="review-card">
+      <div class="review-card" >
         <h3> <%= review.title %></h3>
         <p> <%= review.rating %> / 5 </p>
         <p> <%= review.body %> </p>
