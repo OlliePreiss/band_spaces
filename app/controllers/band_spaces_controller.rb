@@ -2,7 +2,7 @@ class BandSpacesController < ApplicationController
   before_action :set_bandspace, only: [:show, :destroy, :edit, :update]
 
   def index
-
+    
     @bandspaces = BandSpace.all
     @markers = @bandspaces.geocoded.map do |bandspace|
       {

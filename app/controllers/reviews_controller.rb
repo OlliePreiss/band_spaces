@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @bandspace = BandSpace.find(params[:band_space_id])
     @review.band_space = @bandspace
     @review.user = current_user
-    if @review.save
+    if @review.save!
       update_rating(@bandspace)
       redirect_to band_space_path(@bandspace)
     else
