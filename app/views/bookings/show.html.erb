@@ -1,4 +1,4 @@
-<div class="container booking col-9 shadow p-3 mb-5 bg-body rounded">
+<div class="container booking col-6 shadow p-3 mb-5 bg-body rounded">
   <div class="space-header ">
     <h2> <%= @booking.band_space.name %> </h2>
   </div>
@@ -20,7 +20,7 @@
     </div>
     <p> <%= @booking.band_space.address %> </p>
     <p> <%= @booking.band_space.description %> </p>
-    <h4> <%= @booking.date %> </h4>
+    <h5> Date: <strong> <%= @booking.date %> </strong> </h5>
   </div>
   <div class="d-flex mb-1 pb-1">
     <div>
